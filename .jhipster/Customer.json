@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "cpf",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cnpj",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "securecompany",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "licenseplate",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "initialTerm",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "finalTerm",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20160917150949",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "customer",
+    "pagination": "pager"
+}

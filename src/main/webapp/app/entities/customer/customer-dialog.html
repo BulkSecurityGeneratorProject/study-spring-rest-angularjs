@@ -1,0 +1,82 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCustomerLabel">Criar ou editar um Cliente</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.customer.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.customer.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_cpf">CPF</label>
+            <input type="text" class="form-control" name="cpf" id="field_cpf"
+                    ng-model="vm.customer.cpf"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_cnpj">CNPJ</label>
+            <input type="text" class="form-control" name="cnpj" id="field_cnpj"
+                    ng-model="vm.customer.cnpj"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_name">Nome</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.customer.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_securecompany">Seguradora</label>
+            <input type="text" class="form-control" name="securecompany" id="field_securecompany"
+                    ng-model="vm.customer.securecompany"
+                    required />
+            <div ng-show="editForm.securecompany.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.securecompany.$error.required">
+                    Esse campo é obrigatório.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_licenseplate">Placa</label>
+            <input type="text" class="form-control" name="licenseplate" id="field_licenseplate"
+                    ng-model="vm.customer.licenseplate"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_initialTerm">Início da Vigência</label>
+                <div class="input-group">
+                    <input id="field_initialTerm" type="text" class="form-control" name="initialTerm" uib-datepicker-popup="{{dateformat}}" ng-model="vm.customer.initialTerm" is-open="vm.datePickerOpenStatus.initialTerm"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('initialTerm')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_finalTerm">Fim da Vigência</label>
+                <div class="input-group">
+                    <input id="field_finalTerm" type="text" class="form-control" name="finalTerm" uib-datepicker-popup="{{dateformat}}" ng-model="vm.customer.finalTerm" is-open="vm.datePickerOpenStatus.finalTerm"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('finalTerm')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancelar</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Salvar</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span>Cliente</span> {{vm.customer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>CPF</span></dt>
+        <dd>
+            <span>{{vm.customer.cpf}}</span>
+        </dd>
+        <dt><span>CNPJ</span></dt>
+        <dd>
+            <span>{{vm.customer.cnpj}}</span>
+        </dd>
+        <dt><span>Nome</span></dt>
+        <dd>
+            <span>{{vm.customer.name}}</span>
+        </dd>
+        <dt><span>Seguradora</span></dt>
+        <dd>
+            <span>{{vm.customer.securecompany}}</span>
+        </dd>
+        <dt><span>Placa</span></dt>
+        <dd>
+            <span>{{vm.customer.licenseplate}}</span>
+        </dd>
+        <dt><span>Início da Vigência</span></dt>
+        <dd>
+            <span>{{vm.customer.initialTerm | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Fim da Vigência</span></dt>
+        <dd>
+            <span>{{vm.customer.finalTerm | date:'mediumDate'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Voltar</span>
+    </button>
+
+    <button type="button" ui-sref="customer-detail.edit({id:vm.customer.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Alterar</span>
+    </button>
+</div>
